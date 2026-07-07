@@ -7,7 +7,12 @@ import pandas as pd
 import numpy as np
 
 def analyze():
-    df = pd.read_csv("/home/claude/FlipkartPriceAnalytics/data/flipkart_products.csv")
+   from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_PATH = BASE_DIR / "data" / "flipkart_products.csv"
+
+df = pd.read_csv(DATA_PATH)
 
     # Normalize each factor to 0-1 within its category for fair comparison
     def normalize(s):
